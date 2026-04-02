@@ -1,4 +1,4 @@
-use claw_server::{app, AppState};
+use server::{app, AppState};
 
 #[tokio::main]
 async fn main() {

@@ -6,9 +6,8 @@ WORKDIR /app
 # Install build dependencies
 RUN apt-get update && apt-get install -y pkg-config libssl-dev && rm -rf /var/lib/apt/lists/*
 
-# Copy workspace manifests first (layer-cache friendly)
-COPY rust/Cargo.toml rust/Cargo.lock ./
-COPY rust/crates ./crates
+# Copy the entire rust workspace preserving structure
+COPY rust/ ./
 
 # Build only the server binary in release mode
 RUN cargo build --release -p claw-server-bin
@@ -23,6 +22,7 @@ RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/
 
 # Copy the compiled binary from builder
 COPY --from=builder /app/target/release/claw-server /usr/local/bin/claw-server
+
 
 EXPOSE 3000
 

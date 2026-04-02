@@ -10,6 +10,6 @@ name = "claw-server"
 path = "src/main.rs"
 
 [dependencies]
-claw-server = { path = "../server" }
+server = { path = "../server" }
 tokio = { version = "1", features = ["full"] }
 axum = "0.8"
