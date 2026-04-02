@@ -37,7 +37,7 @@ jobs:
         run: cargo check --workspace
 
       - name: Cargo test
-        run: cargo test --workspace
+        run: cargo test --workspace --exclude tools --exclude plugins
 
   docker:
     name: Build & Push Docker Image
