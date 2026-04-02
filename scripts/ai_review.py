@@ -53,6 +53,7 @@ def call_groq(diff: str, api_key: str) -> str:
         headers={
             "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json",
+            "User-Agent": "ai-devops-agent/1.0",
         },
         method="POST",
     )
