@@ -1,0 +1,15 @@
+[package]
+name = "claw-server-bin"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[[bin]]
+name = "claw-server"
+path = "src/main.rs"
+
+[dependencies]
+claw-server = { path = "../server" }
+tokio = { version = "1", features = ["full"] }
+axum = "0.8"
